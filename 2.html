@@ -5,20 +5,40 @@
     <head>
         <title>Kim DoGyun</title>
         <meta charset="utf-8">
+        <!--css-->
+        <style>
+            a{
+                color: black;
+                text-decoration: none;
+            }
+            #active{
+                color: red;
+            }
+            .saw{
+                color: gray;
+            }
+            h1{
+                font-size: 230%;
+                text-align: center;
+                border-bottom: 1px, solid, gray;
+            }
+            li{
+                font-size: 170%;
+            }
+        </style>
     </head>
-
     <!--글꼴 진하게 , 밑줄 u--> 
     <!--<h1>–<h6>: HTML 구획 제목 요소-->
     <body>
         <h1><a href="index.html">이것은 <u>Kim DoGyun</u>의 Web연습 웹입니다.</a></h1>
         <!--ul ol   ol은 숫자도 표기-->
         <ol>                
-            <li><a href="1.html">HTML</a></li>
-            <li><a href="2.html">CSS</a></li>
+            <li><a href="1.html" class = "saw">HTML</a></li>
+            <li><a href="2.html" class = "saw" id="active">CSS</a></li>
             <li><a href="3.html">JavaScript</a></li>
         </ol>
+        
         <h2>CSS</h2>
-
         2022년 3월 12일 토요일
         <!--margin 여백 a링크  -->
         <p style="margin-top:100px;">
