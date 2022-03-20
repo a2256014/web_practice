@@ -4,7 +4,12 @@ function Setlist(probs) {
     let i = 0;
     while (i < data.length) {
         lists.push(<li key={data[i].id}>
-            <a href={"/content/" + data[i].id}>
+            <a href={"/content/" + data[i].id}
+                data-id={data[i].id}
+                onClick={function (e) {
+                    e.preventDefault();
+                    probs.onChangePage(e.target.dataset.id);
+                }}>
                 {data[i].titles}
             </a>
             {data[i].desc}

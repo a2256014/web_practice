@@ -11,24 +11,41 @@ function App() {
     { id: 2, titles: 'CSS', desc: '너무 진짜 어려워' },
     { id: 3, titles: 'React', desc: '너무 완전 어려워' }
   ])
-  let [mode, modechange] = useState("welcome")
+  let [change_id, setchange_id] = useState(0)
   let [matter] = useState([
     "1st : jwndausicbaskdbawk",
     "2rd : wijdncajsduawhdijc",
-    "3rd : ijuefyabhjasnkcnakl"
+    "3rd : ijuefyabhjasnkcnakl",
+    "0 : My Home Page"
   ])
 
-  if (mode === 'welcome') {
-    return (
-      <Bodycontents _title="첫번째" _desc={matter[0]}></Bodycontents>
-    );
+  var d_title, d_desc = null;
+
+  if (change_id === 0) {
+    d_title = 제목;
+    d_desc = matter[3];
+  }
+  else if (change_id === 1) {
+    d_title = contents[0].titles;
+    d_desc = matter[0];
+  }
+  else if (change_id === 2) {
+    d_title = contents[1].titles;
+    d_desc = matter[1];
+  }
+  else if (change_id === 3) {
+    d_title = contents[2].titles;
+    d_desc = matter[2];
   }
 
 
   return (
     <div className="App">
       <Subject title={제목} sub="공부"></Subject>
-      <Setlist data={contents}></Setlist>
+      <Setlist data={contents} onChangePage={function (id) {
+        setchange_id(change_id = Number(id));
+      }}></Setlist>
+      <Bodycontents _title={d_title} _desc={d_desc}></Bodycontents>
     </div>
   );
 }
