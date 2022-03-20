@@ -1,7 +1,12 @@
 function Subject(probs) {
     return (
         <header>
-            <h1>{probs.title} {probs.sub}</h1>
+            <a href="/content/" onClick={function (e) {
+                e.preventDefault();
+                probs.onChangeMode('welcome');
+            }}>
+                <h2>{probs.title}</h2>
+            </a>
         </header>
     );
 }

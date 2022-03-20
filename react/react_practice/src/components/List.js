@@ -9,6 +9,7 @@ function Setlist(probs) {
                 onClick={function (e) {
                     e.preventDefault();
                     probs.onChangePage(e.target.dataset.id);
+                    probs.onChangeMode('read');
                 }}>
                 {data[i].titles}
             </a>
