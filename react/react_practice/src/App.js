@@ -4,7 +4,6 @@ import Subject from './components/Toc';
 import Setlist from './components/List';
 import Bodycontents from './components/Contents';
 import Create from './components/Create';
-import Delete from './components/Delete';
 import Update from './components/Update';
 import Control from './components/Control';
 
@@ -55,9 +54,21 @@ function App() {
     }}></Create>
   }
   else if (mode === 'update') {
-    _article = <Update data={contents} ></Update>
+    _article = <Update data={contents[change_id - 1]}
+      onSubmit={function (_id, _title, _desc) {
+        var _content = Array.from(contents);
+        var i = 0;
+        while (i < _content.length) {
+          if (_content[i].id === _id) {
+            _content[i] = { id: _id, titles: _title, desc: _desc };
+            break;
+          }
+          i = i + 1;
+        }
+        v_contents(_content);
+        setmode('read');
+      }}></Update>
   }
-
 
   return (
     <div className="App">
@@ -70,7 +81,24 @@ function App() {
         setmode(mode = _mode);
       }}></Setlist>
       <Control onChangeMode={function (a) {
-        setmode(mode = a);
+        if (a === 'delete') {
+          if (window.confirm('really?')) {
+            var _content = Array.from(contents);
+            var i = 0;
+            while (i < contents.length) {
+              if (_content[i].id === change_id) {
+                _content.splice(i, 1);
+                break;
+              }
+              i = i + 1;
+            }
+            v_contents(_content);
+            setmode('welcome');
+          }
+        }
+        else {
+          setmode(mode = a);
+        }
       }}></Control>
       {_article}
     </div>
