@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Container, Input } from "./Style";
 import axios from "axios";
 
@@ -12,6 +12,7 @@ const LoginTemplate = () => {
     console.log(login);
   };
   const changePassword = (e) => {
+    console.log(e);
     setlogin((prev) => ({ ...prev, password: e.target.value }));
     console.log(login);
   };
@@ -28,20 +29,6 @@ const LoginTemplate = () => {
       console.log("실패");
     }
   };
-
-  //   useEffect(() => {
-  //     const fetchUsers = async () => {
-  //       const fetchUsers = {
-  //         method: "POST",
-  //         header: { "Contect-Type": "/users.json" },
-  //         body: JSON.stringify({ title: "React POST Request Example" }),
-  //       };
-  //       const response = await fetch("https://reqres.in/api/posts", fetchUsers);
-  //       const _data = await response.json();
-  //       this.setState({ postId: _data.id });
-  //     };
-  //     fetchUsers();
-  //   }, []);
 
   return (
     <Container>
