@@ -1,53 +1,44 @@
-import * as React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { Logo, Container, navBar, Menu, Name, SideBar, MenuBar } from "./style";
+import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
+import { DropList, DropMenu, MenuButton, Nav } from "./style";
+// BiMenu
 
 const NavBar = () => {
-  const navigator = useNavigate();
-
-  const handleLogo = () => navigator("/");
-
-  const [open, setopen] = useState(false);
-  const onclick = () => {
-    setopen(!open);
+  const [show, setShow] = useState(false);
+  const showMenu = () => {
+    setShow(!show);
+    console.log(show);
   };
-
   return (
     <>
-      <Container>
-        <Logo onClick={handleLogo}> Stop!</Logo>
-        <navBar>
-          {open ? (
-            <Menu>
-              <MenuBar>
-                <Link to="#">
-                  <AiIcons.AiOutlineClose onClick={onclick} />
-                </Link>
-              </MenuBar>
+      <Nav>
+        {show ? (
+          <>
+            <MenuButton>
+              <AiIcons.AiOutlineClose onClick={showMenu} />
+            </MenuButton>
+            <DropMenu>
               {SidebarData.map((item, index) => {
                 return (
-                  <SideBar key={index} className={item.cName}>
+                  <DropList>
                     <Link to={item.path}>
                       {item.icon}
-                      <Name>{item.title}</Name>
+                      <div>{item.title}</div>
                     </Link>
-                  </SideBar>
+                  </DropList>
                 );
               })}
-            </Menu>
-          ) : (
-            <MenuBar>
-              <Link to="#">
-                <FaIcons.FaBars onClick={onclick} />
-              </Link>
-            </MenuBar>
-          )}
-        </navBar>
-      </Container>
+            </DropMenu>
+          </>
+        ) : (
+          <MenuButton>
+            <FaIcons.FaBars onClick={showMenu} />
+          </MenuButton>
+        )}
+      </Nav>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import NavBar from "./Components/Organisms/NavBar";
+import Header from "./Components/Organisms/Header";
 import AboutPage from "./Pages/AboutPage";
 import AboutPostPage from "./Pages/AboutPostPage";
 import HomePage from "./Pages/HomePage";
@@ -7,7 +7,7 @@ import HomePage from "./Pages/HomePage";
 function App() {
   return (
     <>
-      <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
