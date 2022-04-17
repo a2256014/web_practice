@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { Button, Container, Input } from "./Style";
 import axios from "axios";
+import onLoginSuccess from "../../Util/onLoginSuccess";
+import { useNavigate } from "react-router-dom";
 
 const LoginTemplate = () => {
+  const nav = useNavigate();
   const [login, setlogin] = useState({
     id: "",
     password: "",
   });
   const changeId = (e) => {
     setlogin((prev) => ({ ...prev, id: e.target.value }));
-    console.log(login);
   };
   const changePassword = (e) => {
-    console.log(e);
     setlogin((prev) => ({ ...prev, password: e.target.value }));
-    console.log(login);
   };
 
   const onclick = async () => {
@@ -24,7 +24,9 @@ const LoginTemplate = () => {
 
     const { id, password, name } = users[0];
     if (id === login.id && password === login.password) {
-      console.log("로그인 성공 : " + name);
+      const { data } = await axios.get("/token.json");
+      onLoginSuccess(data);
+      nav("/mypage");
     } else {
       console.log("실패");
     }
@@ -32,8 +34,13 @@ const LoginTemplate = () => {
 
   return (
     <Container>
-      <Input placeholder="아이디를 입력해주세요" onChange={changeId} />
       <Input
+        description="Id"
+        placeholder="아이디를 입력해주세요"
+        onChange={changeId}
+      />
+      <Input
+        description="Password"
         type="password"
         placeholder="비밀번호를 입력해주세요"
         onChange={changePassword}

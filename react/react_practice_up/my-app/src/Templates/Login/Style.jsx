@@ -1,39 +1,51 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 100px;
-  padding: 20px;
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 1000px;
+  width: 450px;
+  height: 400px;
+  margin: 100px auto;
+  background-color: #ffffff;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  max-width: 100%;
 `;
 
 export const Input = styled.input`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 40px;
-  margin: 0 0 8px;
-  padding: 5px 39px 5px 11px;
-  border: solid 1px #dadada;
-  background: #fff;
+  width: 80%;
   box-sizing: border-box;
+  border: none;
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  box-shadow: inset 0px -3px 0px 0px rgba(187, 187, 187, 0.2);
+  transition: box-shadow 0.2s ease-in;
+
+  text-align: center;
+
+  
 `;
 
 export const Button = styled.div`
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 49px;
-  display: block;
-  width: 100%;
-  height: 49px;
-  margin: 16px 0 7px;
-  cursor: pointer;
   text-align: center;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  background-color: #03c75a;
-  ${({ disabled }) =>
-    disabled &&
-    `
-    background-color: #efefef;
-  `}
+  border-radius: 25px;
+  width: 80%;
+  height: 40px;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+  background: #cf3333;
+  border: 0px;
+  cursor: pointer;
+  transition: opacity 0.25s ease-out;
+
+  :hover {
+    opacity: 0.8;
+  }
 `;
