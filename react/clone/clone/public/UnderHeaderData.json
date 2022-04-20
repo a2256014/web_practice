@@ -1,0 +1,17 @@
+{
+  "/": [
+    { "name": "홈", "path": "/" },
+    { "name": "팔로잉", "path": "/contents/follow" },
+    { "name": "사진", "path": "/contents/picture" }
+  ],
+  "/store": [
+    { "name": "스토어홈", "path": "/store" },
+    { "name": "카테고리", "path": "/store/category" },
+    { "name": "베스트", "path": "/store/best" }
+  ],
+  "/experts": [
+    { "name": "업체찾기", "path": "/experts" },
+    { "name": "간편상담", "path": "/experts/consultation" },
+    { "name": "견적계산", "path": "/experts/calculator" }
+  ]
+}

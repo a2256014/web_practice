@@ -7,11 +7,13 @@ const Benner = () => {
   const [display, setDisplay] = useState("true");
 
   return (
-    <BennerForm display={display}>
-      <div />
-      <BennerInfo />
-      <BennerButton setDisplay={setDisplay} />
-    </BennerForm>
+    <div>
+      <BennerForm display={display}>
+        <div />
+        <BennerInfo />
+        <BennerButton setDisplay={setDisplay} />
+      </BennerForm>
+    </div>
   );
 };
 

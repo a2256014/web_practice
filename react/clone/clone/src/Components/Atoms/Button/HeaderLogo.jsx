@@ -1,8 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Logo = () => {
+  const nav = useNavigate();
+  const onclick = () => {
+    nav("/");
+  };
   return (
-    <LogoContainer>
+    <LogoContainer onClick={onclick}>
       <LogoImg src="./오늘의집.png" />
     </LogoContainer>
   );

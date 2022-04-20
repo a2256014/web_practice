@@ -1,7 +1,11 @@
 import { Container } from "./style";
 
 const HomeTemplates = () => {
-  return <Container></Container>;
+  return (
+    <>
+      <Container>here home page</Container>
+    </>
+  );
 };
 
 export default HomeTemplates;
