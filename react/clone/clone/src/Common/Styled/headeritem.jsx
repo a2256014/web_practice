@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
   width: 500px;
-  justify-content: space-evenly;
-  padding-right: 20px;
+  min-inline-size: 290px;
 
   opacity: 0.85;
   font-size: 20px;
@@ -14,9 +12,15 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.a`
+  position: relative;
+  display: inline-block;
+  line-height: 26px;
+  padding: 0 10px 0 10px;
+  
+
   cursor: pointer;
   color: ${(probs) => probs.select && "rgb(0, 187, 255)"};
-  display: inline-block;
+  
   :hover {
     color: rgb(0, 187, 255);
   }
@@ -24,14 +28,14 @@ export const Item = styled.a`
     content: "";
     display: ${(probs) => (probs.select ? "block" : "none")};
     position: absolute;
-    top: 110.2px;
-    left: 28%;
+    top: 163%;
+    left: 45%;
     width: 0;
     height: 0;
     border-style: solid;
     margin: 1px 0 0 -5px;
     border-width: 0 5px 10px;
-    border-color: transparent transparent #dbdbdb;
+    border-color: transparent transparent #242424;
 }
 
   }
@@ -39,14 +43,14 @@ export const Item = styled.a`
     content: "";
     display: ${(probs) => (probs.select ? "block" : "none")};
     position: absolute;
-    top: 110.2px;
-    left: 251px;
+    top: 162.5%;
+    left: 45%;
     width: 0;
     height: 0;
     border-style: solid;
     margin: 2px 0 0 -4px;
     border-width: 0 4.5px 9px;
-    border-color: transparent transparent #fff;
+    border-color: transparent transparent white;
     transform: translateX(-0.5px);
   }
 `;

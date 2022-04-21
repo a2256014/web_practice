@@ -1,5 +1,6 @@
+import { Container } from "../../../Common/Styled/container";
 const FollowTemplate = () => {
-  return <>here follow page</>;
+  return <Container>here follow page</Container>;
 };
 
 export default FollowTemplate;

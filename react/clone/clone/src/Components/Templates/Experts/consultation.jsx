@@ -1,5 +1,6 @@
+import { Container } from "../../../Common/Styled/container";
 const ConsultTemplate = () => {
-  return <>here consult page</>;
+  return <Container>here consult page</Container>;
 };
 
 export default ConsultTemplate;

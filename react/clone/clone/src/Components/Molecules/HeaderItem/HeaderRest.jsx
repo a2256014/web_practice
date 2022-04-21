@@ -1,13 +1,14 @@
 import { IconButton, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { CgShoppingCart } from "react-icons/cg";
-import { Container, Right } from "../../../Common/Styled/headerrest";
+import { Container } from "../../../Common/Styled/headerrest";
 import Write from "../../Atoms/Button/Write";
 import HeaderSearch from "../../Atoms/Input/HeaderSearch";
-const HeaderRest = (_case) => {
+const HeaderRest = ({ _case, modal, drop, visible }) => {
   const [display, setDisplay] = useState("true");
+
   useEffect(() => {
-    switch (_case._case) {
+    switch (_case) {
       case "Full":
         return setDisplay("true");
       case "Middle":
@@ -16,20 +17,20 @@ const HeaderRest = (_case) => {
       //do nothing
     }
   }, [_case]);
+
   return (
-    <Container>
-      <HeaderSearch _case={_case._case} />
+    <Container _case={_case}>
+      <HeaderSearch _case={_case} modal={modal} />
       <Button>
         <CgShoppingCart />
       </Button>
-      <Item>로그인</Item>
-      <Right />
-      <Item>회원가입</Item>
+      <Item set="Full">로그인</Item>
+
+      <Item set={_case}>회원가입</Item>
       <React display={display}>
-        <Right />
         <Item>고객센터</Item>
       </React>
-      <Write />
+      <Write drop={drop} visible={visible} />
     </Container>
   );
 };
@@ -37,7 +38,7 @@ const HeaderRest = (_case) => {
 export default HeaderRest;
 
 const Button = styled(IconButton)`
-  padding: 0;
+  padding: 4px 4px 4px 4px;
   font-size: 30px;
 
   :hover {
@@ -51,10 +52,21 @@ const React = styled("div")`
 `;
 
 const Item = styled("a")`
+  position: relative;
   cursor: pointer;
-  color: ${(probs) => probs.select && "rgb(0, 187, 255)"};
+  padding: 0 10px 0 10px;
 
   :hover {
     color: rgb(0, 187, 255);
+  }
+  ::after {
+    content: "";
+    display: ${(probs) => (probs.set === "Full" ? "flex" : "none")};
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 1.5px;
+    background-color: #242424;
   }
 `;

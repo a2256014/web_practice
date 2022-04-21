@@ -1,5 +1,6 @@
+import { Container } from "../../../Common/Styled/container";
 const BestTemplate = () => {
-  return <>here best page</>;
+  return <Container>here best page</Container>;
 };
 
 export default BestTemplate;

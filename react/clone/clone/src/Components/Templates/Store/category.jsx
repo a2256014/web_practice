@@ -1,5 +1,7 @@
+import { Container } from "../../../Common/Styled/container";
+
 const CategoryTemplate = () => {
-  return <>here category page</>;
+  return <Container>here category page</Container>;
 };
 
 export default CategoryTemplate;

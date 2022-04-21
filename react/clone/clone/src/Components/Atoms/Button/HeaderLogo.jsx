@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { LOGO_URL } from "../../../Common/Constant";
 
 const Logo = () => {
   const nav = useNavigate();
@@ -8,7 +9,7 @@ const Logo = () => {
   };
   return (
     <LogoContainer onClick={onclick}>
-      <LogoImg src="./오늘의집.png" />
+      <LogoImg src={LOGO_URL} />
     </LogoContainer>
   );
 };
@@ -17,10 +18,9 @@ export default Logo;
 
 const LogoContainer = styled.a`
   font-family: OhouseSans;
+  padding-right: 20px;
 `;
 const LogoImg = styled.img`
-  padding: 10px;
-  padding-right: 30px;
   width: 150px;
   cursor: pointer;
 `;

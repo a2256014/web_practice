@@ -13,5 +13,10 @@
     { "name": "업체찾기", "path": "/experts" },
     { "name": "간편상담", "path": "/experts/consultation" },
     { "name": "견적계산", "path": "/experts/calculator" }
+  ],
+  "/contents": [
+    { "name": "홈", "path": "/" },
+    { "name": "팔로잉", "path": "/contents/follow" },
+    { "name": "사진", "path": "/contents/picture" }
   ]
 }

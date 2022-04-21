@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container } from "../../../Common/Styled/container";
 
 const HomeTemplates = () => {
   return (

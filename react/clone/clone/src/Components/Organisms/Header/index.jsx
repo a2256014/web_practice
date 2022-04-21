@@ -7,14 +7,14 @@ import HeaderRest from "../../Molecules/HeaderItem/HeaderRest";
 import UnderHeader from "../../Molecules/UnderHeader";
 import { HeaderContainer } from "./style";
 
-const Header = () => {
+const Header = ({ modal, drop, visible }) => {
   const [displaySize, setDisplaySize] = useState(window.innerWidth);
   const [displaycase, setDisplayCase] = useState("Full");
   const location = useLocation();
   let select = [false, false, false];
 
   useEffect(() => {
-    if (displaySize > 1023) {
+    if (displaySize > 1100) {
       setDisplayCase("Full");
     } else if (displaySize > 767) {
       setDisplayCase("Middle");
@@ -44,12 +44,17 @@ const Header = () => {
 
   return (
     <>
-      <HeaderContainer>
+      <HeaderContainer _case={displaycase}>
         <Logo />
         <HeaderItem select={select} />
-        <HeaderRest _case={displaycase} />
+        <HeaderRest
+          _case={displaycase}
+          modal={modal}
+          drop={drop}
+          visible={visible}
+        />
       </HeaderContainer>
-      <UnderHeader location={location} />
+      <UnderHeader location={location} _case={displaycase} />
     </>
   );
 };

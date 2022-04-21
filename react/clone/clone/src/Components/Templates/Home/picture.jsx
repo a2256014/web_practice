@@ -1,5 +1,6 @@
+import { Container } from "../../../Common/Styled/container";
 const PictureTemplate = () => {
-  return <>here picture page</>;
+  return <Container>here picture page</Container>;
 };
 
 export default PictureTemplate;

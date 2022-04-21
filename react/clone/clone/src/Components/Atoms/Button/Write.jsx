@@ -1,8 +1,20 @@
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
-const Write = () => {
+const Write = ({ drop, visible }) => {
+  const onclick = () => {
+    if (!visible.visible) {
+      drop.setIsDrop(!drop.isDrop);
+      visible.setVisible(!visible.visible);
+    } else {
+      visible.setVisible(!visible.visible);
+      setTimeout(() => {
+        drop.setIsDrop(!drop.isDrop);
+      }, 200);
+    }
+  };
+
   return (
-    <WriteButton>
+    <WriteButton onClick={onclick} id="글쓰기">
       <Text>글쓰기</Text>
       <FiChevronDown />
     </WriteButton>
@@ -18,8 +30,9 @@ const WriteButton = styled.button`
   background-color: rgb(0, 187, 255);
   border: 0px;
   border-radius: 5px;
-  width: 95px;
+  width: 85px;
   height: 40px;
+  color: white;
 
   font-size: 15px;
   font-weight: bold;
@@ -28,6 +41,4 @@ const WriteButton = styled.button`
   }
 `;
 
-const Text = styled.div`
-  color: white;
-`;
+const Text = styled.div``;

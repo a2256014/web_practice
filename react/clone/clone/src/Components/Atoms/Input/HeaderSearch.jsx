@@ -1,9 +1,9 @@
 import { IconButton, TextField, styled } from "@mui/material";
 import { BiSearch } from "react-icons/bi";
 
-const HeaderSearch = (_case) => {
+const HeaderSearch = ({ _case, modal }) => {
   const Reaction = () => {
-    switch (_case._case) {
+    switch (_case) {
       case "Full":
         return (
           <InputForm
@@ -21,13 +21,17 @@ const HeaderSearch = (_case) => {
         );
       case "Middle":
         return (
-          <Button>
+          <Button onClick={onclick}>
             <BiSearch />
           </Button>
         );
       default:
       //do nothing
     }
+  };
+
+  const onclick = () => {
+    modal.setOpenModal(!modal.openModal);
   };
 
   return Reaction();
@@ -44,8 +48,7 @@ const InputForm = styled(TextField)`
 `;
 
 const Button = styled(IconButton)`
-  padding: 0;
-  padding-left: 1;
+  padding: 4px;
   font-size: 28px;
   opacity: 0.8;
 
